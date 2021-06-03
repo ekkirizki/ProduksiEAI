@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\absensi;
+use App\Http\Controllers\produksi;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,13 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/produksi', function () {
-    return view('produksi');
-})->name('produksi');
+// Route::get('/produksi', function () {
+//     return view('produksi');
+// })->name('produksi');
+
+// Route::get('/absensi', function () {
+//     return view('absensi');
+// })->name('absensi');
 
 Route::resource('absensi', absensi::class);
+Route::resource('produksi', produksi::class);

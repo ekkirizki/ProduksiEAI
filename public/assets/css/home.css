@@ -15,3 +15,6 @@
     .card-title {
     text-align: center;
     }
+    html, body{
+        height: 80vh;
+    }
