@@ -13,7 +13,7 @@
             <img src="{{ asset('assets/gambar/orang.png') }}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Absensi</h5>
-                <a href="{{ route('absensi') }}" class="stretched-link"></a>
+                <a href="{{ route('absensi.index') }}" class="stretched-link"></a>
             </div>
         </div>
         {{-- <div class="card">
