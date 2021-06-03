@@ -2,11 +2,8 @@
 
 use Illuminate\Support\Str;
 
-<<<<<<< HEAD
 $Database_url = parse_url('postgres://wrzrxwqevbqobx:fdfc6943c50800aadd5a10f0d794c64e9f964e92ade5e1689f85a7ee4125caaf@ec2-54-243-92-68.compute-1.amazonaws.com:5432/d69fimoiggts8a');
 
-=======
->>>>>>> 758c180965e5b35bc533b9af0fe55331d663f832
 return [
 
     /*
@@ -20,11 +17,7 @@ return [
     |
     */
 
-<<<<<<< HEAD
     'default' => env('DB_CONNECTION', 'pgsql'),
-=======
-    'default' => env('DB_CONNECTION', 'mysql'),
->>>>>>> 758c180965e5b35bc533b9af0fe55331d663f832
 
     /*
     |--------------------------------------------------------------------------
@@ -74,26 +67,16 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-<<<<<<< HEAD
             // 'url' => $Database_url,
             'host' => $Database_url["host"],
             'port' => $Database_url["port"],
             'database' => ltrim($Database_url["path"], "/"),
             'username' => $Database_url["user"],
             'password' => $Database_url["pass"],
-=======
-            'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
->>>>>>> 758c180965e5b35bc533b9af0fe55331d663f832
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
             'schema' => 'public',
-<<<<<<< HEAD
             'sslmode' => 'require'
         ],
 
@@ -112,11 +95,6 @@ return [
         //     'sslmode' => 'prefer',
         // ],
 
-=======
-            'sslmode' => 'prefer',
-        ],
-
->>>>>>> 758c180965e5b35bc533b9af0fe55331d663f832
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'url' => env('DATABASE_URL'),

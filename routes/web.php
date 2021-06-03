@@ -1,11 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-<<<<<<< HEAD
 use App\Http\Controllers\absensi;
 use App\Http\Controllers\produksi;
-=======
->>>>>>> 758c180965e5b35bc533b9af0fe55331d663f832
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +17,6 @@ use App\Http\Controllers\produksi;
 
 Route::get('/', function () {
     return view('home');
-<<<<<<< HEAD
 })->name('home');
 
 // Route::get('/produksi', function () {
@@ -33,6 +29,3 @@ Route::get('/', function () {
 
 Route::resource('absensi', absensi::class);
 Route::resource('produksi', produksi::class);
-=======
-});
->>>>>>> 758c180965e5b35bc533b9af0fe55331d663f832
