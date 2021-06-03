@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\absensi;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
+
+Route::get('/produksi', function () {
+    return view('produksi');
+})->name('produksi');
+
+Route::resource('absensi', absensi::class);

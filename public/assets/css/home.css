@@ -1,0 +1,17 @@
+.card {
+    height: 40vh;
+    }
+
+    .card img {
+    padding: 1em;
+    }
+
+    .card-img-top {
+    width: 30vh;
+    height: 30vh;
+    align-self: center;
+    }
+
+    .card-title {
+    text-align: center;
+    }

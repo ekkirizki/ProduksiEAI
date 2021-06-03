@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Str;
 
+$Database_url = parse_url('postgres://wrzrxwqevbqobx:fdfc6943c50800aadd5a10f0d794c64e9f964e92ade5e1689f85a7ee4125caaf@ec2-54-243-92-68.compute-1.amazonaws.com:5432/d69fimoiggts8a');
+
 return [
 
     /*
@@ -15,7 +17,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -65,18 +67,33 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            // 'url' => $Database_url,
+            'host' => $Database_url["host"],
+            'port' => $Database_url["port"],
+            'database' => ltrim($Database_url["path"], "/"),
+            'username' => $Database_url["user"],
+            'password' => $Database_url["pass"],
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
             'schema' => 'public',
-            'sslmode' => 'prefer',
+            'sslmode' => 'require'
         ],
+
+        // 'pgsql' => [
+        //     'driver' => 'pgsql',
+        //     'url' => env('DATABASE_URL'),
+        //     'host' => env('DB_HOST', '127.0.0.1'),
+        //     'port' => env('DB_PORT', '5432'),
+        //     'database' => env('DB_DATABASE', 'forge'),
+        //     'username' => env('DB_USERNAME', 'forge'),
+        //     'password' => env('DB_PASSWORD', ''),
+        //     'charset' => 'utf8',
+        //     'prefix' => '',
+        //     'prefix_indexes' => true,
+        //     'schema' => 'public',
+        //     'sslmode' => 'prefer',
+        // ],
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
