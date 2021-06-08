@@ -29,6 +29,10 @@ Route::get('/performa', function () {
     return view('performance');
 })->name('performa');
 
+Route::get('/keuangan', function () {
+    return view('keuangan');
+})->name('keuangan');
+
 // Route::get('/produksi', function () {
 //     return view('produksi');
 // })->name('produksi');
@@ -41,3 +45,4 @@ Route::resource('absensi', absensi::class);
 Route::resource('produksi', produksi::class);
 Route::resource('laporan_karyawan', laporan_karyawan::class);
 Route::resource('pengeluaran', pengeluaran::class);
+

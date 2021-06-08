@@ -22,7 +22,7 @@
             <img src="..." class="card-img-top" alt="Keuangan">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
-                <a href="{{ route('') }}" class="stretched-link"></a>
+                <a href="{{ route('keuangan') }}" class="stretched-link"></a>
             </div>
         </div>
             </div>
