@@ -1,6 +1,22 @@
 @extends('layouts.dasar')
 @section('Judul', 'Absensi')
 @section('Konten')
+
+    @php
+    use GuzzleHttp\Client;
+
+    $url_hrd = 'https://eai-api-hrd.herokuapp.com/';
+
+    // $url_hrd = 'yukcetak-absensi.herokuapp.com/api/';
+
+    $client_hrd = new Client([
+        'base_uri' => $url_hrd,
+    ]);
+
+    $response_hrd = $client_hrd->request('GET', 'karyawan')->getbody();
+    $hasil_hrd = json_decode($response_hrd);
+
+    @endphp
     {{-- validasi --}}
     <div class="row align-items-center h-100">
         <div class="col mx-auto">
@@ -39,15 +55,27 @@
                                     Id Karyawan</label>
                             </td>
                             <td>
-                                <input list="list_karyawan" name="Id_Karyawan" autocomplete="off" id="Id_Karyawan"
-                                    class="form-control">
-                                {{-- <datalist id="list_karyawan">
-                        @foreach ($hasil_hrd as $hrd)
+                                <input list="list_Id_karyawan" name="Id_Karyawan" autocomplete="off" id="Id_Karyawan"
+                                    class="form-control" onkeyup="Nama_Kar()">
+                                <datalist id="list_Id_karyawan">
+                                    @foreach ($hasil_hrd as $hrd)
+                                    
+                                    @if (strtoupper($hrd->department) == "PRODUKSI")
+                                    <option value="{{ $hrd->id }}">
+                                    @endif                                                                            
 
-                            <option value="{{ $hrd->id }}">
-
-                        @endforeach
-                    </datalist> --}}
+                                    @endforeach
+                                </datalist>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row" style="width: 15%;">
+                                <label for="Nama_Karyawan" class="col-sm-1-12 col-form-label">
+                                    Nama Karyawan</label>
+                            </td>
+                            <td>
+                                <input type="text" name="Nama_Karyawan" id="Nama_Karyawan" class="form-control" readonly>
+                                </datalist>
                             </td>
                         </tr>
                         <tr>
@@ -90,6 +118,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 
     <script>
+        // timepicker
         $(document).ready(function() {
             $('#Jam_Masuk').timepicker({
                 timeFormat: 'HH:mm'
@@ -102,6 +131,29 @@
             var date = (new Date()).toISOString().split('T')[0];
             document.getElementById("Tanggal").value = date;
         });
+
+        // Setup Nama berdasarkan ID
+        function Nama_Kar() {
+            var Id_Karyawan = document.getElementById('Id_Karyawan').value;
+            var baseurl = "https://eai-api-hrd.herokuapp.com/karyawan/" + Id_Karyawan;
+            console.log(Id_Karyawan);
+            console.log(baseurl);
+
+            $.ajax({
+                type: "get",
+                url: baseurl,
+                success: function(data) {
+                    var json = data;
+                    var nama = json.name;
+                    if (Id_Karyawan == "") {
+                        document.getElementById("Nama_Karyawan").value = "";
+                    } else {
+                        document.getElementById("Nama_Karyawan").value = nama;
+                    }
+                    console.log(json.name);
+                }
+            });
+        }
 
     </script>
 @endsection

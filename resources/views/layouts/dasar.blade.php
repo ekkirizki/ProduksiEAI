@@ -40,8 +40,11 @@
         <a href="{{ route('produksi.index') }}" class="nav-link">
             Produksi
         </a>
-        <a href="{{ route('absensi.index') }}" class="nav-link">
-            Absensi
+        <a href="{{ route('keuangan') }}" class="nav-link">
+            Keuangan
+        </a>
+        <a href="{{ route('karyawan') }}" class="nav-link">
+            Karyawan
         </a>
         <a href="#">
             <span class="navbar-text">
