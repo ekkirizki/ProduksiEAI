@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use GuzzleHttp\Client;
 
-class performance extends Controller
+class budget extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,7 @@ class performance extends Controller
     public function index()
     {
         //
-        $count = DB::table('absensi')->count('id');
+        return view('budget');
     }
 
     /**
@@ -37,8 +38,24 @@ class performance extends Controller
     public function store(Request $request)
     {
         //
-        if($request->bulan == date('M Y')){
+        $url_budget = "https://eai-api.herokuapp.com/api/budgeting";
 
+        $client_budget = new Client([
+        'base_uri' => $url_budget
+        ]);
+
+        try{
+            $insert_budget = $client_budget->request('POST', 'budgeting', [
+                    'form_params' => [
+                        'nama_divisi' => $request->Nama_Divisi,
+                        'evaluasi_budget' => $request->Budget,
+                        'quartal' => $request->Kuartal
+                    ]
+                    ]);
+                    return redirect()->route('budget.index')->with('Berhasil', "Berhasil");
+        }
+        catch (Exception $e) {
+            return redirect()->route('budget.index')->with('Gagal', $e->getMessage());
         }
     }
 

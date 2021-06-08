@@ -19,9 +19,9 @@
                     </div>
                 </div>
                 <div class="card">
-            <img src="..." class="card-img-top" alt="Keuangan">
+            <img src="{{ asset('assets/gambar/keuangan.png') }}" class="card-img-top" alt="Keuangan">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Keuangan</h5>
                 <a href="{{ route('keuangan') }}" class="stretched-link"></a>
             </div>
         </div>

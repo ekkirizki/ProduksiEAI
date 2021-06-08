@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\absensi;
+use App\Http\Controllers\budget;
 use App\Http\Controllers\laporan_karyawan;
 use App\Http\Controllers\pengeluaran;
 use App\Http\Controllers\produksi;
@@ -45,4 +46,4 @@ Route::resource('absensi', absensi::class);
 Route::resource('produksi', produksi::class);
 Route::resource('laporan_karyawan', laporan_karyawan::class);
 Route::resource('pengeluaran', pengeluaran::class);
-
+Route::resource('budget', budget::class);
