@@ -35,19 +35,19 @@
                 @method('PUT')
                 @csrf
                 <div class="form-group row">
-                    <label for="IdProduksi" class="col-sm-2 col-form-label">Id Produksi</label>
+                    <label for="IdProduksi" class="col-sm-2 col-form-label">Id Barang</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="IdProduksi" name="IdProduksi" value="{{$edt->id_produksi}}" readonly>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="NamaProduksi" class="col-sm-2 col-form-label">Nama Produksi</label>
+                    <label for="NamaProduksi" class="col-sm-2 col-form-label">Nama Barang</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="NamaProduksi" name="NamaProduksi" value="{{$edt->nama_produksi}}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="TotalProduksi" class="col-sm-2 col-form-label">Total Produksi</label>
+                    <label for="TotalProduksi" class="col-sm-2 col-form-label">Total Barang</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="TotalProduksi" name="TotalProduksi" value="{{$edt->total_produksi}}">
                     </div>

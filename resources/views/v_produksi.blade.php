@@ -23,7 +23,7 @@
                         <img src="{{ asset('assets/gambar/gudang.png') }}" class="card-img-top" alt="Karyawan">
                         <div class="card-body">
                             <h5 class="card-title">Gudang</h5>
-                            <a href="{{ route('gudang') }}" class="stretched-link"></a>
+                            <a href="{{ route('gudang.index') }}" class="stretched-link"></a>
                         </div>
                     </div>
             </div>

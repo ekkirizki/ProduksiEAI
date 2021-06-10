@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class apiproduksi extends Controller
+class api_laporan_karyawan extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +16,17 @@ class apiproduksi extends Controller
     public function index()
     {
         //
+        $input = Request()->all(); //buat ngambil parameter -> setelah ? google/h?id=1
+
+        if ($input == null) {
+            $pengiriman = DB::table('laporan_karyawan')->get();
+            return $pengiriman;
+        } else {
+            // dd($input);
+            $pengiriman = DB::table('laporan_karyawan')->where($input)->get();
+            return $pengiriman;
+        }
+    
     }
 
     /**
@@ -36,6 +49,16 @@ class apiproduksi extends Controller
     public function show($id)
     {
         //
+         try {
+            $pengiriman = DB::table('laporan_karyawan')->where('id', '=', $id)->get();
+            return response()->json(
+                $pengiriman,
+                200
+            );
+        } catch (Exception $e) {
+            $res = $e->getMessage();
+            return response($res);
+        }
     }
 
     /**
