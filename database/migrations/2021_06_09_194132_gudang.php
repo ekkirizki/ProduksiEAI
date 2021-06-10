@@ -19,7 +19,8 @@ class Gudang extends Migration
             $table->string('id_barang');
             $table->string('nama_barang');
             $table->string('total_barang');            
-            $table->timestamps();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('created_at')->useCurrent();
     });
     }
     /**

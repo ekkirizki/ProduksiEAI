@@ -25,12 +25,6 @@
             </div>
 <table class="table table-bordered text-center" id="Produksi">
   <thead>
-      $table->string('id_produksi');
-            $table->string('nama_produksi');
-            $table->string('total_produksi');
-            $table->string('ukuran');
-            $table->string('penanggung_jawab');
-            $table->string('pabrik');
     <tr>      
       <th scope="col">Id Produksi</th>
       <th scope="col">Nama Produk</th>
@@ -52,16 +46,26 @@
         <td>{{$prod->status}}</td>
         <td>{{$prod->penanggung_jawab}}</td>
         <td>{{$prod->pabrik}}</td>
-        {{-- <td>
-            <span><a href="{{route('pengeluaran.edit', $peng->id)}}" class="btn btn-primary">Edit </a></span>
-            <span><a href="{{route('pengeluaran.destroy', $peng->id)}}" class="btn btn-danger"> Hapus </a></span>
-        </td> --}}
+        <td>
+            <div class="btn-group" role="group">
+            <form action="{{route('produksi.edit', $prod->id)}}">
+            <span><button type="submit" class="btn btn-primary"> Edit </button> </span>
+            </form>
+            </div>
+            <div class="btn-group" role="group">
+            <form action="{{route("produksi.destroy", $prod->id)}}" method="POST">
+                @csrf
+                @method('delete')
+            <span><button type="submit" class="btn btn-danger"> Hapus </button></span>
+            </form>
+            </div>
+        </td>
         </tr>
     @endforeach    
 </tbody>
 </table>
-{{-- {{ $datapeng->links() }} --}}
-{{-- <a href="{{route('produksi.index')}}" class="btn btn-primary btn-block"> Tambah </a>     --}}
+{{ $produksi->links() }}
+<a href="{{route('tambah_produksi.index')}}" class="btn btn-primary btn-block"> Tambah </a>    
 
 </div>
 </div>

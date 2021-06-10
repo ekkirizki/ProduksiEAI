@@ -21,6 +21,7 @@ class CreateProduksiTable extends Migration
             $table->string('ukuran');
             $table->string('penanggung_jawab');
             $table->string('pabrik');
+            $table->string('status');
             $table->timestamps();
         });
     }

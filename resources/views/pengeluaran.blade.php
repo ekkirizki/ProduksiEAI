@@ -35,11 +35,21 @@
         <td>{{$peng->total_harga}}</td>
         <td>{{$peng->tanggal_permintaan}}</td>
         <td>
-            <span><a href="{{route('pengeluaran.edit', $peng->id)}}" class="btn btn-primary">Edit </a></span>
-            <span><a href="{{route('pengeluaran.destroy', $peng->id)}}" class="btn btn-danger"> Hapus </a></span>
+            <div class="btn-group" role="group">
+            <form action="{{route('pengeluaran.edit', $peng->id)}}">
+            <span><button type="submit" class="btn btn-primary"> Edit </button> </span>
+            </form>
+            </div>
+            <div class="btn-group" role="group">
+            <form action="{{route("pengeluaran.destroy", $peng->id)}}" method="POST">
+                @csrf
+                @method('delete')
+            <span><button type="submit" class="btn btn-danger"> Hapus </button></span>
+            </form>
         </td>
         </tr>
-    @endforeach    
+    @endforeach
+    
 </tbody>
 </table>
 {{ $datapeng->links() }}

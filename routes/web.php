@@ -6,6 +6,7 @@ use App\Http\Controllers\budget;
 use App\Http\Controllers\laporan_karyawan;
 use App\Http\Controllers\pengeluaran;
 use App\Http\Controllers\produksi;
+use App\Http\Controllers\tambah_produksi;
 use App\Http\Controllers\tambah_pengeluaran;
 use App\Http\Controllers\laporan_produksi;
 
@@ -63,6 +64,7 @@ Route::get('/about-us', function () {
 Route::resource('absensi', absensi::class);
 Route::resource('produksi', produksi::class);
 Route::resource('laporan_produksi', laporan_produksi::class);
+Route::resource('tambah_produksi', tambah_produksi::class);
 Route::resource('laporan_karyawan', laporan_karyawan::class);
 Route::resource('pengeluaran', pengeluaran::class);
 Route::resource('tambah_pengeluaran', tambah_pengeluaran::class);

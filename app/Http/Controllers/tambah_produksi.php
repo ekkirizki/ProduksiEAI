@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use GuzzleHttp\Client;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class laporan_produksi extends Controller
+class tambah_produksi extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,15 +16,7 @@ class laporan_produksi extends Controller
     public function index()
     {
         //
-        $url_produksi = 'https://cs-yukcetak-prd.herokuapp.com/api/';    
-
-    $client_produksi = new Client([
-        'base_uri' => $url_produksi,
-    ]);
-
-    $response_produksi = $client_produksi->request('GET', 'laporan-produksi')->getbody();
-    $hasil_produksi = json_decode($response_produksi);        
-        return view('laporan_produksi', ['produksi' => $hasil_produksi]);
+        return view('tambah_produksi');
     }
 
     /**
@@ -45,6 +38,31 @@ class laporan_produksi extends Controller
     public function store(Request $request)
     {
         //
+        $validasi = $request->validate([
+            'IdProduksi' => 'required',
+            'NamaProduksi' => 'required',            
+            'TotalProduksi' => 'required',
+            'Ukuran' => 'required',
+            'PJ' => 'required',
+            'Pabrik' => 'required',
+            'Status' => 'required'
+        ]);
+
+        try{
+            DB::table('produksi')->insert([
+                'id_produksi' => $request->IdProduksi,
+                'nama_produksi' => $request->NamaProduksi,
+                'total_produksi' => $request->TotalProduksi,
+                'ukuran'=> $request->Ukuran,
+                'penanggung_jawab'=>$request->PJ,
+                'pabrik'=>$request->Pabrik,
+                'status'=>$request->Status
+            ]);
+            return redirect()->route('produksi.index')->with('Berhasil', "Berhasil");
+        }
+        catch (Exception $e){
+            return redirect()->route('produksi.index')->with('Gagal', $e->getMessage());
+        }
     }
 
     /**

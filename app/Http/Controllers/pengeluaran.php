@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\pengeluaran as ModelsPengeluaran;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -64,6 +65,8 @@ class pengeluaran extends Controller
     public function edit($id)
     {
         //
+        $edit = DB::table('pengeluaran')->where('id', '=', $id)->get();        
+        return view('edit_pengeluaran', ['edit'=>$edit]);
     }
 
     /**
@@ -76,6 +79,27 @@ class pengeluaran extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validasi = $request->validate([
+            'id_karyawan' => 'required',
+            'nama_karyawan' => 'required',
+            'keperluan' => 'required',
+            'total' => 'required',
+            'tanggal' => 'required'
+        ]);
+        // dd($request);
+        try{
+            DB::table('pengeluaran')->where('id', $id)->update([
+                'id_karyawan' => $request->id_karyawan,
+                'nama_karyawan' => $request->nama_karyawan,                
+                'keperluan' => $request->keperluan,
+                'total_harga' => $request->total,
+                'tanggal_permintaan' => $request->tanggal
+            ]); 
+            return redirect()->route('pengeluaran.index')->with('Berhasil', "Berhasil");
+        }
+        catch(Exception $e){
+             return redirect()->route('pengeluaran.index')->with('Gagal', $e->getMessage());
+        }
     }
 
     /**
