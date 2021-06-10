@@ -15,7 +15,6 @@
                     <p>{{ $message }}</p>
                 </div>
             @endif
-
             <div class="form-group row" style="margin-bottom: 1em;">
                <label for="inputName" class="col-sm-1-12 col-form-label">Search</label>
                <div class="col">
@@ -25,15 +24,9 @@
             </div>
 <table class="table table-bordered text-center" id="Produksi">
   <thead>
-      $table->string('id_produksi');
-            $table->string('nama_produksi');
-            $table->string('total_produksi');
-            $table->string('ukuran');
-            $table->string('penanggung_jawab');
-            $table->string('pabrik');
     <tr>      
-      <th scope="col">Id Produksi</th>
-      <th scope="col">Nama Produk</th>
+      <th scope="col">No Document</th>
+      <th scope="col">Nama Product</th>
       <th scope="col">Kuantitas</th>
       <th scope="col">Ukuran</th>
       <th scope="col">Status</th>
@@ -45,13 +38,13 @@
     @foreach ($produksi as $prod)
     <tr>
         
-        <td>{{$prod->id_produksi}}</td>
-        <td>{{$prod->nama_produksi}}</td>
-        <td>{{$prod->total_produksi}}</td>
-        <td>{{$prod->ukuran}}</td>
-        <td>{{$prod->status}}</td>
-        <td>{{$prod->penanggung_jawab}}</td>
-        <td>{{$prod->pabrik}}</td>
+        <td>{{$prod->documentNo}}</td>
+        <td>{{$prod->productName}}</td>
+        <td>{{$prod->productQty}}</td>
+        <td>{{$prod->productSize}}</td>
+        <td>{{$prod->productStatus}}</td>
+        <td>{{$prod->productResponsible}}</td>
+        <td>{{$prod->productFactory}}</td>
         {{-- <td>
             <span><a href="{{route('pengeluaran.edit', $peng->id)}}" class="btn btn-primary">Edit </a></span>
             <span><a href="{{route('pengeluaran.destroy', $peng->id)}}" class="btn btn-danger"> Hapus </a></span>
@@ -65,5 +58,29 @@
 
 </div>
 </div>
+
+<script>
+       function cari() {
+           var input, filter, tabel, tr, td, i, txtvalue;
+           input = document.getElementById("inputan");
+           filter = input.value;
+           tabel = document.getElementById("Produksi");
+           tr = document.getElementsByTagName("tr");
+
+           console.log(filter);
+           for (i = 0; i < tr.length; i++) {
+               td = tr[i].getElementsByTagName("td")[1]; //berdasarkan kolom, 0 nyari dari paling kiri.
+               if (td) {
+                   txtValue = td.textContent || td.innerText;
+                   if (txtValue.indexOf(filter) > -1) {
+                       tr[i].style.display = "";
+                   } else {
+                       tr[i].style.display = "none";
+                   }
+               }
+           }
+       }
+
+   </script>
 
 @endsection

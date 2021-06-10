@@ -16,7 +16,17 @@ class budget extends Controller
     public function index()
     {
         //
-        return view('budget');
+        $url_budget = 'https://eai-api.herokuapp.com/api/';
+
+    // $url_hrd = 'yukcetak-absensi.herokuapp.com/api/';
+
+    $client_budget = new Client([
+        'base_uri' => $url_budget,
+    ]);
+
+    $response_budget = $client_budget->request('GET', 'budgeting')->getbody();
+    $hasil_budget = json_decode($response_budget);        
+        return view('budget', ['budget' => $hasil_budget]);
     }
 
     /**
@@ -42,6 +52,12 @@ class budget extends Controller
 
         $client_budget = new Client([
         'base_uri' => $url_budget
+        ]);
+
+        $validasi = $request->validate([
+            'Nama_Divisi' => 'required',
+            'Budget' => 'required',
+            'Kuartal' => 'required'            
         ]);
 
         try{

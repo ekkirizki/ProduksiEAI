@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\pengeluaran as ModelsPengeluaran;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class pengeluaran extends Controller
+class apiproduksi extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,21 +12,6 @@ class pengeluaran extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
-        $pengeluaran = new ModelsPengeluaran;
-        $hasil = $pengeluaran::paginate(5);
-        // $users = DB::table('pengeluaran')->get();
-        // dd($users[0]->nama_karyawan, $hasil[1]->nama_karyawan);
-        return view('pengeluaran', ['datapeng' => $hasil]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
     {
         //
     }
@@ -51,17 +34,6 @@ class pengeluaran extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
     {
         //
     }

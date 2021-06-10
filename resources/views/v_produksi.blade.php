@@ -1,7 +1,8 @@
 @extends('layouts.dasar')
-@section('Judul', 'Home')
+@section('Judul', 'Absensi')
 @section('Konten')
-    <div class="row align-items-center h-100">
+
+<div class="row align-items-center h-100">
         <div class="col mx-auto">
             <div class="card-deck h-100 border-primary justify-content-center" style="margin-bottom: 1em;">
                 <div class="card" style="width: 5em;">
@@ -12,17 +13,17 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img src="{{ asset('assets/gambar/keuangan.png') }}" class="card-img-top" alt="Keuangan">
+                    <img src="{{ asset('assets/gambar/note.png') }}" class="card-img-top" alt="Keuangan">
                     <div class="card-body">
-                        <h5 class="card-title">Keuangan</h5>
-                        <a href="{{ route('keuangan') }}" class="stretched-link"></a>
+                        <h5 class="card-title">Laporan Produksi</h5>
+                        <a href="{{ route('laporan_produksi.index') }}" class="stretched-link"></a>
                     </div>
                 </div>
                     <div class="card">
-                        <img src="{{ asset('assets/gambar/orang.png') }}" class="card-img-top" alt="Karyawan">
+                        <img src="{{ asset('assets/gambar/gudang.png') }}" class="card-img-top" alt="Karyawan">
                         <div class="card-body">
-                            <h5 class="card-title">Karyawan</h5>
-                            <a href="{{ route('karyawan') }}" class="stretched-link"></a>
+                            <h5 class="card-title">Gudang</h5>
+                            <a href="{{ route('gudang') }}" class="stretched-link"></a>
                         </div>
                     </div>
             </div>

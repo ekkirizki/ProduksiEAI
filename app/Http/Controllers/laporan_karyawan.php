@@ -66,6 +66,7 @@ class laporan_karyawan extends Controller
         'base_uri' => $url_lp
         ]);
         // dd(gettype($request), $request->nama, $request->nama[2], count($request->nama));
+                
         try {
             for($i = 0; $i < count($request->nama); $i++){
 

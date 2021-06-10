@@ -37,7 +37,7 @@
                 class="d-inline-block align-top" alt="">
             Production
         </a>
-        <a href="{{ route('produksi.index') }}" class="nav-link">
+        <a href="{{ route('v_produksi') }}" class="nav-link">
             Produksi
         </a>
         <a href="{{ route('keuangan') }}" class="nav-link">
@@ -46,7 +46,7 @@
         <a href="{{ route('karyawan') }}" class="nav-link">
             Karyawan
         </a>
-        <a href="#">
+        <a href="{{route('aboutus')}}">
             <span class="navbar-text">
                 About us
             </span>

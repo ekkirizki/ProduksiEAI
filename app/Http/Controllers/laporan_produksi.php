@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\pengeluaran as ModelsPengeluaran;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class pengeluaran extends Controller
+class laporan_produksi extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +15,15 @@ class pengeluaran extends Controller
     public function index()
     {
         //
-        $pengeluaran = new ModelsPengeluaran;
-        $hasil = $pengeluaran::paginate(5);
-        // $users = DB::table('pengeluaran')->get();
-        // dd($users[0]->nama_karyawan, $hasil[1]->nama_karyawan);
-        return view('pengeluaran', ['datapeng' => $hasil]);
+        $url_produksi = 'https://cs-yukcetak-prd.herokuapp.com/api/';    
+
+    $client_produksi = new Client([
+        'base_uri' => $url_produksi,
+    ]);
+
+    $response_produksi = $client_produksi->request('GET', 'laporan-produksi')->getbody();
+    $hasil_produksi = json_decode($response_produksi);        
+        return view('produksi', ['produksi' => $hasil_produksi]);
     }
 
     /**

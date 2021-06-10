@@ -14,6 +14,17 @@ class Pengeluaran extends Migration
     public function up()
     {
         //
+        Schema::create('pengeluaran', function (Blueprint $table) {
+            $table->id();
+            $table->string('id_karyawan');
+            $table->string("nama_karyawan");                        
+            $table->string("divisi");
+            $table->string("keperluan");
+            $table->integer("total_harga");
+            $table->date('tanggal_permintaan');
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('created_at')->useCurrent();
+        });
     }
 
     /**
@@ -24,5 +35,6 @@ class Pengeluaran extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('pengeluaran');
     }
 }
