@@ -3,6 +3,7 @@
 use App\Http\Controllers\api_pengeluaran;
 use App\Http\Controllers\api_laporan_karyawan;
 use App\Http\Controllers\api_produksi;
+use App\Http\Controllers\api_gudang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
