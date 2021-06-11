@@ -7,7 +7,7 @@
     $absen = [];
     $nama = [];
     @endphp
-    @foreach ($lp as $lapk)
+    @foreach ($lp as $lpak)
 
         @php
             if ($lpak->divisi.toUpperCase() == "PRODUKSI" && strcasecmp($lapk->divisi, 'PRODUKSI') == 0) {
