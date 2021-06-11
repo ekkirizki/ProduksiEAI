@@ -42,6 +42,7 @@ class api_pengeluaran extends Controller
                 'id_karyawan' => $request->id_karyawan,
                 'nama_karyawan' => $request->nama_karyawan,                
                 'keperluan' => $request->keperluan,
+                'divisi' => $request->divisi,
                 'total_harga' => $request->total,
                 'tanggal_permintaan' => $request->tanggal
             ]); 
