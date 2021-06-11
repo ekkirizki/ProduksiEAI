@@ -7,10 +7,10 @@
     $absen = [];
     $nama = [];
     @endphp
-    @foreach ($lp as $lpak)
+    @foreach ($lp as $lapk)
 
         @php
-            if ($lpak->divisi.toUpperCase() == "PRODUKSI" && strcasecmp($lapk->divisi, 'PRODUKSI') == 0) {
+            if (strtoupper($lapk->divisi) == "PRODUKSI" && strcasecmp($lapk->divisi, 'PRODUKSI') == 0) {
                 $banyaknya_absen = $banyaknya_absen + 1;
                 // $pr = array_count_values($item);
                 if (isset($lapk->nama) && substr($lapk->created_at,0,7) == date('Y-m')) {
