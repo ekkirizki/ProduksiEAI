@@ -40,13 +40,13 @@ class api_produksi extends Controller
         //
         try{
             DB::table('produksi')->insert([
-                'id_produksi' => $request->IdProduksi,
-                'nama_produksi' => $request->NamaProduksi,
-                'total_produksi' => $request->TotalProduksi,
-                'ukuran'=> $request->Ukuran,
+                'id_produksi' => $request->id_produksi,
+                'nama_produksi' => $request->nama_produksi,
+                'total_produksi' => $request->total_produksi,
+                'ukuran'=> $request->ukuran,
                 'penanggung_jawab'=>$request->PJ,
-                'pabrik'=>$request->Pabrik,
-                'status'=>$request->Status
+                'pabrik'=>$request->pabrik,
+                'status'=>$request->status
             ]);
             $res['message'] = "Berhasil";            
             return response($res);
