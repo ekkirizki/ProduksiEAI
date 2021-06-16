@@ -67,7 +67,7 @@ class api_produksi extends Controller
     {
         //
         try {
-            $pengiriman = DB::table('produksi')->where('id_produksi', '=', $id)->get();
+            $pengiriman = DB::table('produksi')->where('id', '=', $id)->get();
             return response()->json(
                 $pengiriman,
                 200
