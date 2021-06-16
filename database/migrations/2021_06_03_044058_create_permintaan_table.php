@@ -15,6 +15,8 @@ class CreatePermintaanTable extends Migration
     {
         Schema::create('permintaan', function (Blueprint $table) {
             $table->id();
+            $table->string('id_produksi');
+            $table->string('nama_produk');
             $table->timestamps();
         });
     }

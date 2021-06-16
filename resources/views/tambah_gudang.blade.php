@@ -1,5 +1,5 @@
 @extends('layouts.dasar')
-@section('Judul', 'Produksi')
+@section('Judul', 'Gudang')
 @section('Konten')
 
     <div class="row align-items-center h-100">

@@ -22,7 +22,8 @@ class CreateProduksiTable extends Migration
             $table->string('penanggung_jawab');
             $table->string('pabrik');
             $table->string('status');
-            $table->timestamps();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 
