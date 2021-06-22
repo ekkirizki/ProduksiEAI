@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/karyawan" name="karyawan" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/list">
+        <inSequence>
+            <send>
+                <endpoint key="list_karyawan"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" uri-template="/absensi">
+        <inSequence>
+            <send>
+                <endpoint key="absensi"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/report">
+        <inSequence>
+            <propertyGroup>
+                <property expression="get-property(&quot;query.param.nama&quot;)" name="nama" scope="default" type="STRING"/>
+                <property expression="$ctx:query.param.divisi" name="divisi" scope="default" type="STRING"/>
+                <property expression="$url:jumlah_absensi" name="jumlah" scope="default" type="STRING"/>
+                <property expression="$url:nilai_performa" name="nilai" scope="default" type="STRING"/>
+            </propertyGroup>
+            <send>
+                <endpoint>
+                    <http method="post" uri-template="https://penilaian-performa.herokuapp.com/api/performa">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>-1</progressionFactor>
+                            <maximumDuration>0</maximumDuration>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </http>
+                </endpoint>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" uri-template="/report">
+        <inSequence>
+            <send>
+                <endpoint>
+                    <http method="get" uri-template="https://penilaian-performa.herokuapp.com/api/performa">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>-1</progressionFactor>
+                            <maximumDuration>0</maximumDuration>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </http>
+                </endpoint>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/absensi">
+        <inSequence>
+            <propertyGroup>
+                <property expression="$url:nama" name="uri.var.nama" scope="default" type="STRING"/>
+                <property expression="$ctx:query.param.divisi" name="uri.var.divisi" scope="default" type="STRING"/>
+                <property expression="get-property(&quot;query.param.jam_masuk&quot;)" name="uri.var.masuk" scope="default" type="STRING"/>
+                <property expression="$url:jam_keluar" name="uri.var.keluar" scope="default" type="STRING"/>
+                <property expression="$url:tanggal_absensi" name="uri.var.tanggal" scope="default" type="STRING"/>
+                <property expression="$ctx:query.param.id" name="uri.var.id" scope="default" type="STRING"/>
+            </propertyGroup>
+            <send>
+                <endpoint>
+                    <http method="post" uri-template="https://yukcetak-absensi.herokuapp.com/api/karyawan?id={uri.var.id}&amp;nama={uri.var.nama}&amp;divisi={uri.var.divisi}&amp;jam_masuk={uri.var.masuk}&amp;jam_keluar={uri.var.keluar}&amp;tanggal_absensi={uri.var.tanggal}">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>-1</progressionFactor>
+                            <maximumDuration>0</maximumDuration>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </http>
+                </endpoint>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="D:\Documents\Aping\IntegrationStudio\jdk-home" version="1.8.0_252">
+<bootpath>
+<entry path="D:\Documents\Aping\IntegrationStudio\jdk-home\jre\lib\resources.jar"/>
+<entry path="D:\Documents\Aping\IntegrationStudio\jdk-home\jre\lib\rt.jar"/>
+<entry path="D:\Documents\Aping\IntegrationStudio\jdk-home\jre\lib\sunrsasign.jar"/>
+<entry path="D:\Documents\Aping\IntegrationStudio\jdk-home\jre\lib\jsse.jar"/>
+<entry path="D:\Documents\Aping\IntegrationStudio\jdk-home\jre\lib\jce.jar"/>
+<entry path="D:\Documents\Aping\IntegrationStudio\jdk-home\jre\lib\charsets.jar"/>
+<entry path="D:\Documents\Aping\IntegrationStudio\jdk-home\jre\lib\jfr.jar"/>
+<entry path="D:\Documents\Aping\IntegrationStudio\jdk-home\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="D:\Documents\Aping\IntegrationStudio\jdk-home\jre\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="D:\Documents\Aping\IntegrationStudio\jdk-home\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>

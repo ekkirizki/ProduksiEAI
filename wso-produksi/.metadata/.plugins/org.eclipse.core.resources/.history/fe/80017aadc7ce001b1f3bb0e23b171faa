@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/karyawan" name="karyawan" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/list">
+        <inSequence>
+            <call/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

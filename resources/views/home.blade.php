@@ -8,7 +8,7 @@
                     <img src="{{ asset('assets/gambar/produksi.png') }}" class="card-img-top" alt="Produksi">
                     <div class="card-body">
                         <h5 class="card-title"> Produksi </h5>
-                        <a href="{{ route('produksi.index') }}" class="stretched-link"></a>
+                        <a href="{{ route('v_produksi') }}" class="stretched-link"></a>
                     </div>
                 </div>
                 <div class="card">
