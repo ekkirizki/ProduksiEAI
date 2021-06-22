@@ -32,7 +32,7 @@
             </propertyGroup>
             <send>
                 <endpoint>
-                    <http method="post" uri-template="https://penilaian-performa.herokuapp.com/api/performa?nama={uri.var.nama}&amp;divisi={uri.var.divisi}&amp;jumlah_absen={uri.var.jumlah}&amp;nilai_performa={uri.var.nilai}">
+                    <http method="post" uri-template="https://penilaian-performa.herokuapp.com/api/performa?nama={uri.var.nama}&amp;divisi={uri.var.produksi}&amp;jumlah_absen={uri.var.jumlah}&amp;nilai_performa={uri.var.nilai}">
                         <suspendOnFailure>
                             <initialDuration>-1</initialDuration>
                             <progressionFactor>-1</progressionFactor>

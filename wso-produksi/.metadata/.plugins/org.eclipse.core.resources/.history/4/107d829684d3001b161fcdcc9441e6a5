@@ -25,14 +25,14 @@
     <resource methods="POST" uri-template="/report">
         <inSequence>
             <propertyGroup>
-                <property expression="get-property(&quot;query.param.nama&quot;)" name="uri.var.nama" scope="default" type="STRING"/>
-                <property expression="$ctx:query.param.divisi" name="uri.var.divisi" scope="default" type="STRING"/>
-                <property expression="$url:jumlah_absen" name="uri.var.jumlah" scope="default" type="STRING"/>
-                <property expression="$url:nilai_performa" name="uri.var.nilai" scope="default" type="STRING"/>
+                <property expression="get-property(&quot;query.param.nama&quot;)" name="nama" scope="default" type="STRING"/>
+                <property expression="$ctx:query.param.divisi" name="divisi" scope="default" type="STRING"/>
+                <property expression="$url:jumlah_absensi" name="jumlah" scope="default" type="STRING"/>
+                <property expression="$url:nilai_performa" name="nilai" scope="default" type="STRING"/>
             </propertyGroup>
             <send>
                 <endpoint>
-                    <http method="post" uri-template="https://penilaian-performa.herokuapp.com/api/performa?nama={uri.var.nama}&amp;divisi={uri.var.divisi}&amp;jumlah_absen={uri.var.jumlah}&amp;nilai_performa={uri.var.nilai}">
+                    <http method="post" uri-template="https://penilaian-performa.herokuapp.com/api/performa">
                         <suspendOnFailure>
                             <initialDuration>-1</initialDuration>
                             <progressionFactor>-1</progressionFactor>
